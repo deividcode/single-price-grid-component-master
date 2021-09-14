@@ -1,0 +1,212 @@
+:root {
+    --cyan: hsl(179, 62%, 43%);
+    --amarillo-brillante: hsl(71, 73%, 54%);
+    --gris-ligero: hsl(204, 43%, 93%);
+    --gris-azul: hsl(218, 22%, 67%);
+}
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* font-size: 16px; */
+    background-color: var(--gris-ligero);
+    font-family: 'Karla', sans-serif;
+    
+    font-weight: 400;        
+}
+
+h3{
+    font-size: 1.2em;
+}
+
+/* MAIN */
+
+.main{
+    
+    display: grid;
+          
+    grid-template-areas: "community"
+                         "subscription" 
+                         "whyus";    
+    
+
+    max-width: 650px;
+ 
+    margin:12% 7%;    
+
+    -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.32); 
+    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.32);    
+}
+/* .main > *{
+    border: 1px red solid;
+} */
+
+/* COMMUNITY */
+
+.community{
+    grid-area: community; 
+
+    background-color: white;
+    padding:25px ;       
+}
+
+.community h3{
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.community h4{
+    color: var(--amarillo-brillante);
+    margin: 15px 0;
+}
+
+.community p{
+    line-height: 26px;
+    color: var(--gris-azul);
+}
+
+/* SUBSCRIPTION */
+
+.subscription{
+    grid-area: subscription; 
+
+    padding:23px; 
+    background-color: var(--cyan);
+   
+}
+
+.subscription h3{
+    color: white;
+    font-weight: 400;
+}
+
+.offer{
+    margin: 15px 0;
+    line-height:29px;
+}
+
+.subscription .price{
+    font-size: 1.6em;
+    color: white;
+}
+
+.subscription .price span{
+    font-size:initial;
+    color: whitesmoke;
+}
+
+.subscription p{
+    color: var(--gris-ligero);
+}
+ 
+/* WHY US */
+
+.whyus{
+    grid-area: whyus; 
+
+    color: whitesmoke;    
+    padding:23px; 
+    background-color: hsla(179, 62%, 43%, 0.8);
+}
+
+.whyus h3{
+    margin-bottom: 13px;
+    font-weight: 400;
+}
+
+.whyus p{
+    line-height: 22px;
+    color: var(--gris-ligero);
+}
+
+
+/* BUTTON */
+.btn-signup{
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    display: block;
+    width:100%;
+    
+
+    text-align: center;
+    font-weight: 700;
+    margin-top: 25px;
+    padding: 15px 25px;
+    text-decoration: none;
+
+    color: var(--gris-ligero);
+    background-color: var(--amarillo-brillante);
+
+    -webkit-box-shadow: 0px 5px 12px 1px rgba(0,0,0,0.3); 
+    box-shadow: 0px 5px 12px 1px rgba(0,0,0,0.3);   
+}
+
+.btn-signup span {
+    color: black;
+    position: relative;
+    z-index: 1;
+    transition: color 0.6s cubic-bezier(0.53, 0.21, 0, 1);
+}
+
+.btn-signup::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;    
+    transform: translate(-100%, -50%);
+    width: 100%;
+    height: 103%;
+    background-color: black;
+    transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
+}
+
+.btn-signup:hover span {
+    color: white;
+}
+
+.btn-signup:hover::before {
+    transform: translate(0, -50%);
+}
+
+
+
+@media (min-width: 768px) {
+
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        height: 100vh;
+    }
+
+    .main{
+        
+        grid-template-areas: "community community"
+                             "subscription whyus";
+                             
+        grid-template-columns: 50% 1fr;
+
+        margin: 0;
+    }
+
+    .community{
+        padding: 35px;
+    }
+
+    .community h4{
+        margin: 17px 0;
+    }
+
+
+    .subscription, .whyus{
+        padding:28px;
+    }
+
+}
